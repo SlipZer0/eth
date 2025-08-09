@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
-import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BugAntIcon, ClockIcon, HomeIcon, PlusCircleIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
@@ -19,9 +18,20 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     label: "Home",
     href: "/",
+    icon: <HomeIcon className="h-4 w-4" />,
   },
   {
-    label: "Debug Contracts",
+    label: "Create Capsule",
+    href: "/create",
+    icon: <PlusCircleIcon className="h-4 w-4" />,
+  },
+  {
+    label: "Gallery",
+    href: "/gallery",
+    icon: <SparklesIcon className="h-4 w-4" />,
+  },
+  {
+    label: "Debug",
     href: "/debug",
     icon: <BugAntIcon className="h-4 w-4" />,
   },
@@ -81,13 +91,15 @@ export const Header = () => {
             <HeaderMenuLinks />
           </ul>
         </details>
-        <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
+        <Link href="/" passHref className="hidden lg:flex items-center gap-3 ml-4 mr-6 shrink-0">
           <div className="flex relative w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
+            <ClockIcon className="w-full h-full text-purple-500" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">Scaffold-ETH</span>
-            <span className="text-xs">Ethereum dev stack</span>
+            <span className="font-bold leading-tight bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Time Capsule
+            </span>
+            <span className="text-xs text-base-content/70">NFT Memory Vault</span>
           </div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
